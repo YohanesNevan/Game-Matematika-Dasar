@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz Matematika Dasar</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <div class="container"">
+        <h1>🧮 Quiz Matematika</h1>
+
+        <div id="setup" class="setup-section">
+            <div class="setup-section">
+                <h3>Pilih Operasi Matematika:</h3>
+                <div class="operation-buttons">
+                    <button class="operation-btn" data-operation="addition">➕ Penjumlahan</button>
+                    <button class="operation-btn" data-operation="subtraction">➖ Pengurangan</button>
+                    <button class="operation-btn" data-operation="multiplication">✖️ Perkalian</button>
+                    <button class="operation-btn" data-operation="division">➗ Pembagian</button>
+                </div>
+            </div>
+
+            <div class="setup-section">
+                <h3>Atur Rentang Angka:</h3>
+                <div class="input-group">
+                    <label>Angka Tetap:</label>
+                    <input type="number" id="fixedNumber" value="2" min="1" max="100">
+                </div>
+                <div class="input-group">
+                    <label>Rentang Dari:</label>
+                    <input type="number" id="rangeStart" value="1" min="1" max="100">
+                </div>
+                <div class="input-group">
+                    <label>Rentang Sampai:</label>
+                    <input type="number" id="rangeEnd" value="10" min="1" max="100">
+                </div>
+                <div class="input-group">
+                    <label>Jumlah Soal:</label>
+                    <input type="number" id="totalQuestions" value="10" min="5" max="50">
+                </div>
+            </div>
+
+            <button class="start-btn" onclick="showStudyTable()">📖 Lihat Tabel Belajar</button>
+        </div>
+
+        <div id="study" class="quiz-section">
+            <h2>📚 Tabel Belajar</h2>
+            <p>Pelajari dulu tabel di bawah ini sebelum memulai quiz:</p>
+            
+            <div id="studyTable" class="study-table"></div>
+            
+            <div class="quiz-controls">
+                <button class="btn start-quiz-btn" onclick="startQuizFromStudy()">🚀 Mulai Quiz Sekarang</button>
+                <button class="btn new-quiz-btn" onclick="newQuiz()">🔄 Kembali ke Pengaturan</button>
+            </div>
+        </div>
+
+        <div id="quiz" class="quiz-section">
+            <div class="score">Skor: <span id="score">0</span> / <span id="total">0</span></div>
+            <div class="progress">
+                <div class="progress-bar" id="progressBar"></div>
+            </div>
+            
+            <div class="question">
+                <h2 id="questionText">2 + 1 = ?</h2>
+                <input type="number" id="answerInput" class="answer-input" placeholder="?">
+            </div>
+
+            <div id="feedback" class="feedback" style="display: none;"></div>
+
+            <div class="quiz-controls">
+                <button class="btn check-btn" onclick="checkAnswer()" id="checkBtn">✓ Periksa</button>
+                <button class="btn next-btn" onclick="nextQuestion()" id="nextBtn" style="display: none;">→ Soal Berikutnya</button>
+                <button class="btn new-quiz-btn" onclick="newQuiz()">🔄 Quiz Baru</button>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
